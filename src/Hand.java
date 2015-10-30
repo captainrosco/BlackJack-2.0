@@ -5,9 +5,14 @@ public class Hand {
 		private ArrayList<Integer> hand = new ArrayList<Integer>();
 		private int total = 0;
 		private int card;
+		private String name;
 		
 		Random random = new Random();
-
+		
+		public Hand (String name){
+			this.name = name;
+			buildHand();
+		}
 		
 		public void buildHand(){
 			hit();
@@ -32,8 +37,8 @@ public class Hand {
 			return false;
 		}
 
-		public void getHand(String player){
-			System.out.printf("%s Hand: ", player);
+		public void getHand(){
+			System.out.printf("%s Hand: ", name);
 			for (int cards : hand) {
 				System.out.print(cards + " ");
 			}

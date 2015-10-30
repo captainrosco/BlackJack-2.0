@@ -8,18 +8,16 @@ public class Game {
 		boolean BlackJack = false;
 
 		do {
-			Hand player = new Hand();
-			Hand dealer = new Hand();
-			player.buildHand();
-			dealer.buildHand();
-			player.getHand("Player");
-			dealer.getHand("Dealer");
+			Hand player = new Hand("Player");
+			Hand dealer = new Hand("Dealer");
+			player.getHand();
+			dealer.getHand();
 			hitLoop: do {
 				//checks Aces
 				if (player.ace()) {
 					if (ask("Flip Ace?")) {
 						player.convertAce();
-						player.getHand("Player");
+						player.getHand();
 					}
 				}
 				//Hits
@@ -34,7 +32,7 @@ public class Game {
 						lose();
 						break hitLoop;
 					}
-					player.getHand("Player");
+					player.getHand();
 				} else {
 					break;
 				}
@@ -47,7 +45,7 @@ public class Game {
 						win();
 						break;
 					}
-					dealer.getHand("Dealer");
+					dealer.getHand();
 				} else {
 					break;
 				}
